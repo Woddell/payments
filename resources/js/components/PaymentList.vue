@@ -1,7 +1,7 @@
 <template>
     <div class="w-full px-8">
         <payment-search @search="searchPayments"/>
-        <div class="w-full flex flex-wrap pb-8 border-t border-gray-400">
+        <div class="w-full flex flex-wrap pb-8 mt-2">
             <payment-item
                 v-for="item in payments"
                 :payment-item="item"
@@ -11,6 +11,7 @@
             />
         </div>
         <pagination
+            v-if="totalPages > 1"
             :current-page="currentPage"
             :total-pages="totalPages"
             :max-pages="6"
@@ -47,6 +48,7 @@ export default {
     },
     methods: {
         getPayments(params = {page: this.currentPage, text: this.searchText}) {
+            this.selectedItem = 0
             api.get('payments', params)
                 .then((data) => {
                     this.payments = data.data
@@ -65,7 +67,7 @@ export default {
             }
             this.searchText = searchText
             this.getPayments({page: this.currentPage, text: searchText})
-        }
+        },
     }
 }
 </script>

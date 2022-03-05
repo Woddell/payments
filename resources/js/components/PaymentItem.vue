@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full p-4 hover:bg-white cursor-pointer" @click="$emit('clicked', paymentItem.id)">
+    <div class="w-full px-4 py-2 hover:bg-gray-100 cursor-pointer" @click="$emit('clicked', paymentItem.id)">
         <p class="text-lg font-semibold">
             {{ paymentItem.title }}
         </p>

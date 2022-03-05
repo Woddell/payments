@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <input type="text" @keydown="handleInput" v-model="searchText">
+    <div class="w-full">
+        <input
+            class="w-full bg-gray-50 rounded-sm p-2 shadow-md"
+            type="text"
+            @keydown="handleInput"
+            v-model="searchText"
+        >
     </div>
 </template>
 

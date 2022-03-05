@@ -57,15 +57,17 @@ export default {
     computed: {
         buttons() {
             let maxPages = this.$props.maxPages
+            let totalPages = this.$props.totalPages
+            let totalButtons = totalPages < maxPages ? totalPages : maxPages
             let currentPage = this.$props.currentPage
             let startingNumber = currentPage < maxPages ? currentPage : maxPages
             let buttons = [];
-            while (buttons.length <= maxPages) {
+            while (buttons.length < totalButtons) {
                 buttons.push(startingNumber)
                 startingNumber++
             }
             return buttons
-        }
+        },
     }
 }
 </script>
