@@ -6,6 +6,11 @@ use App\Http\Resources\PaymentCollection;
 use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+
+class PaymentsController extends Controller
+{
+    public function index()
+    {
         return new PaymentCollection(Payment::all());
     }
 
