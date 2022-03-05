@@ -7,12 +7,13 @@ It's a _very_ basic setup, and I don't intend on spending any time adding suppor
 ```shell
 composer install
 npm install
+php artisan migrate
 ```
 If you're using Laravel Valet you can also run: 
 ```shell
 valet link payments
 ```
-This will setup a url for `http://payments.test`. If your app is configured using a different url you will have to update  
+This app has been written on the assumption that you're using valet and your app url will be `http://payments.test`. If your app is configured using a different url you will have to update  
 `/resources/js/utils/api.js` `url` variable and run `npm run prod` to ensure VueJS and call the API.
 
 
@@ -27,7 +28,8 @@ brew install meilisearch
 ```
 
 ### Docs
-Or you can get more info from the following docs:  
+If you're having any difficulty getting set up, please consult the docs:  
+[Laravel](https://laravel.com/docs/9.x)  
 [Laravel Scout driver prerequisites](https://laravel.com/docs/9.x/scout#driver-prerequisites)  
 [Meilisearch Setup and info](https://docs.meilisearch.com/learn/getting_started/quick_start.html#step-1-setup-and-installation)  
 [Redis](https://redis.io/)  
