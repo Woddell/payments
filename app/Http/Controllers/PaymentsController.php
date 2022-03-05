@@ -14,16 +14,7 @@ class PaymentsController extends Controller
         $total = $request->get('total', 5);
         $text = $request->get('text');
 
-        $query = Payment::query();
-        if (strlen($text) > 0) {
-            $query->where(
-                'title',
-                'like',
-                '%' . $text . '%'
-            );
-        }
-
-        return new PaymentCollection($query->paginate($total));
+        return new PaymentCollection(Payment::search($text)->paginate($total));
     }
 
     public function store(Request $request)
