@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         handleInput() {
-            setTimeout(() => this.$emit('search', this.searchText), 600)
+            setTimeout(() => this.$emit('search', this.searchText), 200)
         }
     }
 }

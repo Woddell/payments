@@ -62,6 +62,7 @@ export default {
             this.getPayments()
         },
         searchPayments(searchText) {
+            this.currentPage = 1;
             if (this.searchText === searchText) {
                 return
             }
