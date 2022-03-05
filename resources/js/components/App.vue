@@ -1,17 +1,17 @@
 <template>
     <div class="max-w-xl w-full mx-auto flex justify-center items-center mt-12 p-8 bg-gray-100 rounded shadow-md">
-
+        <payment-list />
     </div>
 </template>
 <style>
 
 </style>
 <script>
+    import PaymentList from "./PaymentList";
+
     export default {
-        data() {
-            return {
-                greeting: 'Hello From Vue'
-            }
+        components: {
+            PaymentList
         }
     }
 </script>

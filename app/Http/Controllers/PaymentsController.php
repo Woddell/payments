@@ -9,9 +9,10 @@ use Illuminate\Http\Request;
 
 class PaymentsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return new PaymentCollection(Payment::all());
+        $total = $request->get('total', 5);
+        return new PaymentCollection(Payment::query()->paginate($total));
     }
 
     public function store(Request $request)

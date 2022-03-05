@@ -12,7 +12,7 @@ class Payment extends Model
     use HasFactory;
 
     protected $casts = [
-        'payment_date' => 'date:d-m-Y'
+        'payment_date' => 'date'
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -22,7 +22,7 @@ class Payment extends Model
 
     public function getAmountAttribute(): float|int
     {
-        return round($this->amount / 100, 2);
+        return round($this->attributes['amount'] / 100, 2);
     }
 
 }
