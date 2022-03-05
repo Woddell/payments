@@ -12,7 +12,18 @@ class PaymentsController extends Controller
     public function index(Request $request)
     {
         $total = $request->get('total', 5);
-        return new PaymentCollection(Payment::query()->paginate($total));
+        $text = $request->get('text');
+
+        $query = Payment::query();
+        if (strlen($text) > 0) {
+            $query->where(
+                'title',
+                'like',
+                '%' . $text . '%'
+            );
+        }
+
+        return new PaymentCollection($query->paginate($total));
     }
 
     public function store(Request $request)
