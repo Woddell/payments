@@ -46,7 +46,7 @@ export default {
         this.getPayments()
     },
     methods: {
-        getPayments(params = {page: this.currentPage}) {
+        getPayments(params = {page: this.currentPage, text: this.searchText}) {
             api.get('payments', params)
                 .then((data) => {
                     this.payments = data.data
